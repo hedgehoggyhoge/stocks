@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+
+  db:
+    image: postgres
+      POSTGRES_PASSWORD: stocks
+
+  bot:
+    environment:
+      CREATE_TABLE: "yes"
+      DB_SWITCH: "on"
+      TOKEN: 5361121732:AAFnlRY4E5r_Kk-T7gsz3lMT5T_8ASAZWmY
+      HOST: db
+      PORT: 5432
+      USER: postgres
+      PASSWORD: test
+      DBNAME: postgres
+      SSLMODE: disable

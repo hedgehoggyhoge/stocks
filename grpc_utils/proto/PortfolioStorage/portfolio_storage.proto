@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package PortfolioStorage;
+option go_package = "./portfolioStorage";
+
+service PortfolioStorage {
+  rpc UpdatePortfolio(UpdatePortfolioRequest) returns (UpdatePortfolioResponse) {};
+  rpc GetPortfolio(GetPortfolioRequest) returns (GetPortfolioResponse) {};
+}
+
+message PortfolioItem {
+  int64 quantity = 1;
+  string name = 2;
+}
+
+message UpdatePortfolioRequest {
+  int64 userId = 1;
+  repeated PortfolioItem portfolioItems = 2;
+}
+
+message UpdatePortfolioResponse {}
+
+message GetPortfolioRequest {
+  int64 userId = 1;
+}
+
+message GetPortfolioResponse {
+  repeated PortfolioItem portfolioItems = 1;
+  float price = 2;
+}
